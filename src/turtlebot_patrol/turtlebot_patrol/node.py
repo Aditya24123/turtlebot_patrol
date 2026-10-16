@@ -24,7 +24,7 @@ class PatrolNode(Node):
             if self.latch_path.exists():
                 data=json.loads(self.latch_path.read_text())
                 self.ctrl.estop=data['latched'] is not False
-        except (OSError,ValueError,KeyError):
+        except (OSError,ValueError,KeyError,TypeError):
             self.ctrl.estop=True
             self.get_logger().error('Unreadable stop latch: remaining stopped until explicit successful reset')
         self.cmd=self.create_publisher(Twist,'cmd_vel',10)

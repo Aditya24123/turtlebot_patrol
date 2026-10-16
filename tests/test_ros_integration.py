@@ -97,6 +97,13 @@ def test_ros_09_stop_survives_restart(rig):
     rig.executor.add_node(rig.node);rig.pump(.6)
     assert rig.status['latched'] and rig.commands[-1]==(0.,0.)
     assert rig.call(False).success
+    # Valid JSON with the wrong structure must also fail latched, not crash.
+    rig.executor.remove_node(rig.node);rig.node.destroy_node()
+    open(rig.path,'w').write('[]')
+    rig.node=PatrolNode(namespace='/qa',parameter_overrides=[Parameter('latch_file',value=rig.path)])
+    rig.executor.add_node(rig.node);rig.pump(.5)
+    assert rig.status['latched'] and rig.commands[-1]==(0.,0.)
+    assert rig.call(False).success
 
 def test_ros_10_repeated_stop_reset(rig):
     for _ in range(5):

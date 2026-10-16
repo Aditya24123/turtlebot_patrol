@@ -50,3 +50,4 @@ def test_10_parameter_validation():
     with pytest.raises(ValueError):Controller(Settings(stop_distance=.9,clear_distance=.8))
     with pytest.raises(ValueError):Controller(Settings(linear_speed=2.))
     with pytest.raises(ValueError):Controller(waypoints=[(math.nan,0.)])
+    with pytest.raises(ValueError):Controller(waypoints=[])

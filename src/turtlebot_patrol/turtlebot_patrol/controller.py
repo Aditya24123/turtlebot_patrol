@@ -23,7 +23,7 @@ class Controller:
                 0<c.hard_distance<c.stop_distance<c.clear_distance and
                 c.sensor_timeout>0 and c.waypoint_tolerance>0):
             raise ValueError('Invalid TurtleBot speed, distance or timeout parameters')
-        self.waypoints=waypoints or [(6.3,1.0),(6.3,4.8),(1.0,4.8),(1.0,1.0)]
+        self.waypoints=[(6.3,1.0),(6.3,4.8),(1.0,4.8),(1.0,1.0)] if waypoints is None else list(waypoints)
         if not self.waypoints or any(len(p)!=2 or not all(math.isfinite(v) for v in p) for p in self.waypoints):
             raise ValueError('Waypoints must be finite x,y pairs')
         self.pose=None; self.pose_at=-math.inf; self.scan_at=-math.inf
