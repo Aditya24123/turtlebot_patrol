@@ -10,7 +10,7 @@ from sensor_msgs.msg import LaserScan
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Twist
 from std_msgs.msg import String
-from std_srvs.srv import SetBool
+from std_srvs.srv import SetBool, Trigger
 from turtlebot_patrol.node import PatrolNode
 
 @pytest.fixture(scope='module',autouse=True)
@@ -109,3 +109,11 @@ def test_ros_10_repeated_stop_reset(rig):
     for _ in range(5):
         assert rig.call(True).success;rig.pump(.1);assert rig.commands[-1]==(0.,0.)
         assert rig.call(False).success;rig.pump(.1);assert rig.commands[-1][0]>0
+    for endpoint,expected_motion in [('trigger_estop',False),('reset_estop',True)]:
+        client=rig.peer.create_client(Trigger,endpoint)
+        assert client.wait_for_service(timeout_sec=2)
+        future=client.call_async(Trigger.Request());end=time.monotonic()+3
+        while not future.done() and time.monotonic()<end:rig.pump(.03)
+        assert future.done() and future.result().success
+        rig.pump(.1)
+        assert (rig.commands[-1][0]>0)==expected_motion

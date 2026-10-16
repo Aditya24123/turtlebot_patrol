@@ -1,0 +1,396 @@
+{
+  "trace": [
+    {
+      "time": 0.04699999999996862,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.09399999999999409,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.13999999999998636,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.18700000000001182,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.23399999999998045,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.2969999999999686,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.3439999999999941,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.38999999999998636,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.4370000000000118,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.5,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.5469999999999686,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.5939999999999941,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.6399999999999864,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.6870000000000118,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.75,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.7969999999999686,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.8439999999999941,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.8899999999999864,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 0.9370000000000118,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 1.0,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 1.093999999999994,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.093999999999994,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.093999999999994,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.1399999999999864,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.1870000000000118,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.25,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.2969999999999686,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.343999999999994,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.3899999999999864,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.4370000000000118,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.4839999999999804,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.5469999999999686,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.593999999999994,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.6399999999999864,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.7029999999999745,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.7339999999999804,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.7969999999999686,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.843999999999994,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.8899999999999864,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 1.9370000000000118,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 2.0,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 2.0469999999999686,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 2.093999999999994,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 2.1399999999999864,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 2.187000000000012,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 2.25,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 2.2969999999999686,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 2.343999999999994,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 2.3899999999999864,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 2.437000000000012,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 2.4839999999999804,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 2.5469999999999686,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 2.593999999999994,
+      "linear": 0.0,
+      "angular": 0.0
+    },
+    {
+      "time": 2.625,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 2.6399999999999864,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 2.687000000000012,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 2.75,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 2.7969999999999686,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 2.843999999999994,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 2.8899999999999864,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 2.937000000000012,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 3.0,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 3.0469999999999686,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 3.093999999999994,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 3.1399999999999864,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 3.187000000000012,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 3.25,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 3.2969999999999686,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 3.343999999999994,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 3.3899999999999864,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 3.437000000000012,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 3.4839999999999804,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 3.5469999999999686,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 3.593999999999994,
+      "linear": 0.2,
+      "angular": 0.0
+    },
+    {
+      "time": 3.6399999999999864,
+      "linear": 0.2,
+      "angular": 0.0
+    }
+  ],
+  "events": [
+    {
+      "service": "trigger_estop",
+      "requested_at": 1.0,
+      "response_at": 1.125,
+      "success": true,
+      "message": "Emergency stop latched; zero velocity commanded"
+    },
+    {
+      "service": "reset_estop",
+      "requested_at": 2.625,
+      "response_at": 2.656000000000006,
+      "success": true,
+      "message": "Emergency stop reset; autonomous patrol enabled"
+    }
+  ],
+  "transport": "Real ROS 2 DDS, synthetic clear LaserScan/Odometry input"
+}

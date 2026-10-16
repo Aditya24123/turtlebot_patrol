@@ -8,7 +8,7 @@ from geometry_msgs.msg import Twist
 from sensor_msgs.msg import LaserScan
 from nav_msgs.msg import Odometry
 from std_msgs.msg import String
-from std_srvs.srv import SetBool
+from std_srvs.srv import SetBool, Trigger
 from .controller import Controller,Settings
 
 class PatrolNode(Node):
@@ -32,7 +32,21 @@ class PatrolNode(Node):
         self.create_subscription(LaserScan,'scan',self.on_scan,qos_profile_sensor_data)
         self.create_subscription(Odometry,'odom',self.on_odom,qos_profile_sensor_data)
         self.create_service(SetBool,'emergency_stop',self.stop_service)
+        self.create_service(Trigger,'trigger_estop',self.trigger_stop)
+        self.create_service(Trigger,'reset_estop',self.reset_stop)
         self.create_timer(0.05,self.tick)
+
+    def trigger_stop(self,req,res):
+        request=SetBool.Request();request.data=True
+        result=self.stop_service(request,SetBool.Response())
+        res.success=result.success;res.message=result.message
+        return res
+
+    def reset_stop(self,req,res):
+        request=SetBool.Request();request.data=False
+        result=self.stop_service(request,SetBool.Response())
+        res.success=result.success;res.message=result.message
+        return res
 
     def on_scan(self,m):
         self.ctrl.scan(m.ranges,m.angle_min,m.angle_increment,m.range_min,m.range_max,time.monotonic())

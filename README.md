@@ -88,19 +88,21 @@ adapter; this package publishes `geometry_msgs/Twist`.
 
 ## Emergency stop and reset
 
-Trigger from a separate sourced terminal:
+Trigger from a separate sourced terminal (the submission portal's named endpoint):
 
 ```bash
-ros2 service call /emergency_stop std_srvs/srv/SetBool "{data: true}"
+ros2 service call /trigger_estop std_srvs/srv/Trigger "{}"
 ```
 
 Reset and resume:
 
 ```bash
-ros2 service call /emergency_stop std_srvs/srv/SetBool "{data: false}"
+ros2 service call /reset_estop std_srvs/srv/Trigger "{}"
 ```
 
-The dashboard buttons call that same service. A successful trigger immediately
+The dashboard buttons call those same services. `/emergency_stop` is also available
+as a `std_srvs/SetBool` compatibility endpoint (`data: true` stops; `data: false` resets).
+A successful trigger immediately
 publishes a zero Twist; the timer continues publishing zero while latched. Reset
 returns `success: false` if either sensor is stale or the hard clearance is violated.
 The latch defaults to `~/.ros/turtlebot_patrol_estop.json`. An unreadable latch file
@@ -119,7 +121,7 @@ TurtleBot driver OR 2D simulator
   /odom (Odometry) ----> waypoint tracking       |
                                                v
                                        driver / simulator
-  /emergency_stop (SetBool) --> persistent stop latch
+  /trigger_estop + /reset_estop (Trigger) --> persistent stop latch
   /patrol/status + /sim/telemetry --> live dashboard
 ```
 
@@ -153,7 +155,7 @@ displayed separately, so a blocked simulator motion cannot masquerade as avoidan
 ```bash
 ros2 topic echo /patrol/status
 ros2 topic echo /cmd_vel
-ros2 service type /emergency_stop
+ros2 service type /trigger_estop
 ros2 node list
 ```
 
@@ -180,15 +182,30 @@ The accelerated closed-loop test uses the same robot/laser geometry as the live
 simulator, replays two full patrol laps and checks collision-guard hits. It is a
 deterministic simulation check, not a physical robot certification.
 
-## Screenshots
+## Verified results and figures
 
-The following are captured from the running ROS dashboard, not generated mockups.
+The following are test-data figures and an architecture diagram. They are not
+screenshots or a substitute for the required one-minute screen recording.
 
-![Live autonomous patrol](https://raw.githubusercontent.com/Aditya24123/turtlebot_patrol/main/docs/images/patrol.png)
+| Check | Observed result |
+|---|---|
+| Controller scenarios | 10 passed |
+| Real ROS DDS/service scenarios | 10 passed |
+| Repeated patrol | 2 complete laps in 228.8 simulated seconds |
+| Collision guard | 0 hits; minimum footprint clearance 0.190 m |
+| Named stop/reset services | Both returned success; latched commands were zero |
 
-![Obstacle avoidance](https://raw.githubusercontent.com/Aditya24123/turtlebot_patrol/main/docs/images/avoidance.png)
+The path figure is generated from `evidence/patrol_trace.json`. The stop-response
+figure uses real ROS 2 commands collected in `evidence/stop_trace.json` while test
+publishers supplied clear laser and odometry input. Run `python tests/record_stop_trace.py`
+after sourcing the package to repeat that trace; `python docs/build_figures.py` rebuilds
+the figures when matplotlib is installed.
 
-![Emergency-stop service latched](https://raw.githubusercontent.com/Aditya24123/turtlebot_patrol/main/docs/images/emergency_stop.png)
+![Two full patrol laps from the accelerated kinematic test](https://raw.githubusercontent.com/Aditya24123/turtlebot_patrol/main/docs/images/patrol.png)
+
+![ROS nodes, topics and stop-latch architecture](https://raw.githubusercontent.com/Aditya24123/turtlebot_patrol/main/docs/images/architecture.png)
+
+![Measured Trigger-service stop and reset response](https://raw.githubusercontent.com/Aditya24123/turtlebot_patrol/main/docs/images/emergency_stop.png)
 
 ## Sources and technical decisions
 

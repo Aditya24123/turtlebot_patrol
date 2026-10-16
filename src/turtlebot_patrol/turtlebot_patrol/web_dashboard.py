@@ -5,15 +5,15 @@ from pathlib import Path
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
-from std_srvs.srv import SetBool
+from std_srvs.srv import Trigger
 from .world import OBSTACLES
 
 PAGE=r'''<!doctype html><html><head><meta charset="utf-8"><title>TurtleBot Patrol | Live ROS 2</title>
 <style>*{box-sizing:border-box}body{margin:0;background:#0b1421;color:#edf4ff;font:15px system-ui}main{width:1160px;margin:auto;padding:20px}h1{font-size:28px;margin:0 0 4px}header p{color:#a7bbd2;margin:0 0 16px}.layout{display:grid;grid-template-columns:760px 1fr;gap:24px}canvas{background:#14243a;border:2px solid #52657f;border-radius:10px}aside{padding:8px}h2{font-size:14px;color:#a7bbd2;letter-spacing:2px}#state{font-size:34px;color:#50e1cd;font-weight:700}.metric{display:flex;justify-content:space-between;line-height:2.2;border-bottom:1px solid #21334a}.value{font-weight:700}button{font:700 14px system-ui;padding:14px 20px;border:0;border-radius:7px;cursor:pointer}#stop{background:#e86572;color:#fff}#reset{background:#50d4b7;color:#102323}footer{display:flex;align-items:center;gap:12px;margin-top:14px}small{color:#a7bbd2}#events{font:12px monospace;color:#c5daee;white-space:pre-wrap;line-height:1.5}.tag{display:inline-block;padding:4px 8px;background:#21334a;border-radius:6px;font-size:12px}#warn{color:#ffd16b;font-size:13px}</style></head>
 <body><main><header><h1>TURTLEBOT / AUTONOMOUS PATROL</h1><p>ROS 2 Jazzy · 2D differential-drive simulation · live DDS topics + service</p></header>
 <div class="layout"><canvas id="world" width="760" height="570"></canvas><aside><h2>LIVE CONTROLLER <span class="tag" id="online">Connecting</span></h2><div id="state">WAITING</div><div id="metrics"></div><h2>SERVICE RESPONSES</h2><div id="events">No calls yet.</div><p id="warn"></p></aside></div>
-<footer><button id="stop" onclick="service(true)">TRIGGER EMERGENCY STOP</button><button id="reset" onclick="service(false)">RESET / RESUME</button><small>Calls /emergency_stop · std_srvs/SetBool</small></footer>
-<p><small>/scan → patrol → /cmd_vel &nbsp; /odom → waypoint tracking &nbsp; /emergency_stop → persistent latch</small></p></main>
+<footer><button id="stop" onclick="service(true)">TRIGGER EMERGENCY STOP</button><button id="reset" onclick="service(false)">RESET / RESUME</button><small>ROS Trigger: /trigger_estop · /reset_estop</small></footer>
+<p><small>/scan → patrol → /cmd_vel &nbsp; /odom → waypoint tracking &nbsp; /trigger_estop → persistent latch</small></p></main>
 <script>
 let trail=[],lastPose=null; const c=document.getElementById('world'),ctx=c.getContext('2d'),start=performance.now();
 const pos=(x,y)=>[20+x*90,555-y*90];
@@ -40,7 +40,8 @@ class WebDashboard(Node):
         super().__init__('patrol_dashboard');self.status={};self.pose={};self.events=[];self.received=0
         self.create_subscription(String,'patrol/status',self.on_status,10)
         self.create_subscription(String,'sim/telemetry',lambda m:setattr(self,'pose',json.loads(m.data)),10)
-        self.client=self.create_client(SetBool,'emergency_stop')
+        self.stop_client=self.create_client(Trigger,'trigger_estop')
+        self.reset_client=self.create_client(Trigger,'reset_estop')
     def on_status(self,m):self.status=json.loads(m.data);self.received=time.monotonic()
 
 def main(args=None):
@@ -65,8 +66,9 @@ def main(args=None):
                 if not 0<size<256:raise ValueError('Invalid request size')
                 data=json.loads(self.rfile.read(size));stop=data['stop']
                 if not isinstance(stop,bool):raise ValueError('stop must be boolean')
-                if not n.client.wait_for_service(timeout_sec=1):raise ValueError('ROS service unavailable')
-                req=SetBool.Request();req.data=stop;f=n.client.call_async(req);done=threading.Event();f.add_done_callback(lambda _:done.set())
+                client=n.stop_client if stop else n.reset_client
+                if not client.wait_for_service(timeout_sec=1):raise ValueError('ROS service unavailable')
+                f=client.call_async(Trigger.Request());done=threading.Event();f.add_done_callback(lambda _:done.set())
                 if not done.wait(2):raise ValueError('ROS service timed out')
                 result=f.result();message=('STOP' if stop else 'RESET')+f' success={result.success}: '+result.message
                 n.events.append(message);self.reply(200,{'success':result.success,'message':message})
