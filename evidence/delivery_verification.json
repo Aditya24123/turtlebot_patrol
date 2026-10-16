@@ -1,0 +1,45 @@
+{
+  "video_duration_seconds": 60.0,
+  "decoded_frames": 1800,
+  "dashboard_controls_visible_in_all_frames": true,
+  "test_runs": [
+    {
+      "tests": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "tests": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "tests": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "tests": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "tests": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "local_files": [
+    "Demo.mp4",
+    "Link.txt",
+    "README.md"
+  ],
+  "readme_copies_identical": true,
+  "video_sha256": "116a54afa81a14709170a40edb4c2665cdf6185d76c47775edf4187e6d527055",
+  "readme_sha256": "f79068aa796c7561a639e083d07da041670b89ff33ec5d309165a5065bb0fea1"
+}
