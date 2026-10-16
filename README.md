@@ -182,6 +182,27 @@ The accelerated closed-loop test uses the same robot/laser geometry as the live
 simulator, replays two full patrol laps and checks collision-guard hits. It is a
 deterministic simulation check, not a physical robot certification.
 
+## Recorded demonstration
+
+`Demo.mp4` in the separate ROS submission folder is a 60-second excerpt of the
+actual dashboard recording at its original speed. It shows patrol, an emergency
+stop with zero commanded velocity, reset/resume, and obstacle avoidance/bypass.
+All events remain in their recorded order. Ambient audio is omitted.
+
+The following screenshots were extracted directly from that recording:
+
+![Autonomous waypoint patrol](https://raw.githubusercontent.com/Aditya24123/turtlebot_patrol/main/docs/screenshots/patrol.png)
+
+![Emergency stop latched with zero forward and angular velocity](https://raw.githubusercontent.com/Aditya24123/turtlebot_patrol/main/docs/screenshots/stopped.png)
+
+![Successful reset followed by resumed patrol](https://raw.githubusercontent.com/Aditya24123/turtlebot_patrol/main/docs/screenshots/resumed.png)
+
+![Obstacle bypass with zero collision-guard hits](https://raw.githubusercontent.com/Aditya24123/turtlebot_patrol/main/docs/screenshots/avoidance.png)
+
+Final repeated verification: the complete 20-test suite passed on five consecutive
+runs (100 passing checks in total). Results are saved in `evidence/repeat-1.txt`
+through `evidence/repeat-5.txt` and the corresponding JUnit XML files.
+
 ## Verified results and figures
 
 The following are test-data figures and an architecture diagram. They are not

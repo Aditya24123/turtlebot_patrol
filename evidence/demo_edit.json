@@ -1,0 +1,18 @@
+{
+  "source": "C:\\Users\\Lenovo\\Videos\\Screen Recordings\\Screen Recording 2026-10-16 220354.mp4",
+  "output": "C:\\byte_ros\\Demo.mp4",
+  "source_interval_seconds": [
+    0.03333333333333333,
+    60.03333333333333
+  ],
+  "speed": 1,
+  "frames": 1800,
+  "fps": 30,
+  "duration_seconds": 60,
+  "resolution": [
+    1920,
+    894
+  ],
+  "audio": "omitted; dashboard demonstration has visual service responses",
+  "edits": "Single chronological excerpt, no reordered events or synthetic frames"
+}
