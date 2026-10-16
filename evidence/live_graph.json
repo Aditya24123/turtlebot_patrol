@@ -1,0 +1,30 @@
+{
+  "status": {
+    "state": "BYPASS",
+    "latched": false,
+    "linear": 0.15,
+    "angular": -0.0015169351936838993,
+    "target": 2,
+    "laps": 0,
+    "front": 1.404,
+    "left": 1.405,
+    "right": 0.356
+  },
+  "pose": {
+    "x": 3.6795628502975264,
+    "y": 3.9975273151464235,
+    "yaw": 3.121232528065538,
+    "distance": 12.7,
+    "collision_guard_hits": 0
+  },
+  "nodes": [
+    "_ros2cli_daemon_88_b66e3e79891c42bbb3de26755d7ada5a",
+    "turtlebot_simulator",
+    "graph_audit",
+    "patrol",
+    "patrol_dashboard"
+  ],
+  "services": [
+    "/emergency_stop"
+  ]
+}

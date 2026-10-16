@@ -1,0 +1,16 @@
+{
+  "seconds_simulated": 228.8,
+  "laps": 2,
+  "collision_guard_hits": 0,
+  "minimum_footprint_clearance_m": 0.18996425539515455,
+  "states": {
+    "PATROL": 1575,
+    "AVOID": 87,
+    "BYPASS": 627
+  },
+  "final_pose": [
+    1.009426401249739,
+    1.2405831250993922,
+    -1.5299577680641003
+  ]
+}

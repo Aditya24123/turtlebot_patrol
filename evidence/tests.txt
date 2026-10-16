@@ -1,0 +1,30 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.15, pytest-9.1.1, pluggy-1.7.0 -- C:\byte_ros\.pixi\envs\default\python.exe
+cachedir: .pytest_cache
+rootdir: C:\byte_ros
+plugins: ament_copyright-0.17.5, ament_flake8-0.17.5, ament_lint-0.17.5, ament_pep257-0.17.5, ament_xmllint-0.17.5, colcon-core-0.19.0, launch_testing-3.4.12, launch_testing_ros-0.26.13, cov-7.1.0, repeat-0.9.4, rerunfailures-16.6.1
+collecting ... collected 20 items
+
+tests/test_controller.py::test_01_clear_patrol PASSED                    [  5%]
+tests/test_controller.py::test_02_front_obstacle_left_turn PASSED        [ 10%]
+tests/test_controller.py::test_03_right_escape PASSED                    [ 15%]
+tests/test_controller.py::test_04_blocked_clearance PASSED               [ 20%]
+tests/test_controller.py::test_05_missing_and_stale_sensors PASSED       [ 25%]
+tests/test_controller.py::test_06_invalid_laser_and_partial_fov PASSED   [ 30%]
+tests/test_controller.py::test_07_hysteresis_and_bypass PASSED           [ 35%]
+tests/test_controller.py::test_08_stop_latch_and_guarded_reset PASSED    [ 40%]
+tests/test_controller.py::test_09_waypoint_cycle PASSED                  [ 45%]
+tests/test_controller.py::test_10_parameter_validation PASSED            [ 50%]
+tests/test_ros_integration.py::test_ros_01_patrol_topics PASSED          [ 55%]
+tests/test_ros_integration.py::test_ros_02_obstacle_and_right_escape PASSED [ 60%]
+tests/test_ros_integration.py::test_ros_03_hard_blockage PASSED          [ 65%]
+tests/test_ros_integration.py::test_ros_04_scan_dropout PASSED           [ 70%]
+tests/test_ros_integration.py::test_ros_05_odometry_dropout PASSED       [ 75%]
+tests/test_ros_integration.py::test_ros_06_bad_scan PASSED               [ 80%]
+tests/test_ros_integration.py::test_ros_07_stop_service_latches PASSED   [ 85%]
+tests/test_ros_integration.py::test_ros_08_guarded_reset PASSED          [ 90%]
+tests/test_ros_integration.py::test_ros_09_stop_survives_restart PASSED  [ 95%]
+tests/test_ros_integration.py::test_ros_10_repeated_stop_reset PASSED    [100%]
+
+------------- generated xml file: C:\byte_ros\evidence\pytest.xml -------------
+============================= 20 passed in 16.21s =============================

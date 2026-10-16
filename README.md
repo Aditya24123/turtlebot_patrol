@@ -43,12 +43,12 @@ pixi shell
 cmd /k install\setup.bat
 ```
 
-Commands below run in that sourced command prompt. The Python simulation dashboard
-uses Tk, supplied with the Pixi Python distribution.
+Commands below run in that sourced command prompt. The dashboard runs in a browser
+and listens only on the local computer, at `http://127.0.0.1:8840`.
 
 ### Ubuntu 24.04 / ROS 2 Jazzy
 
-Install ROS 2 Jazzy and `python3-colcon-common-extensions`, `python3-tk`,
+Install ROS 2 Jazzy and `python3-colcon-common-extensions`,
 `python3-pytest`, and `python3-yaml` through the official ROS/Ubuntu instructions.
 Clone the repository into a workspace, then:
 
@@ -66,6 +66,8 @@ been exercised in this submission. Windows Jazzy is the verified runtime.
 ```bash
 ros2 launch turtlebot_patrol simulation.launch.py
 ```
+
+Open **http://127.0.0.1:8840** in a browser to see the live dashboard and service buttons.
 
 For a headless simulation:
 

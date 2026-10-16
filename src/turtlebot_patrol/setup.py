@@ -12,4 +12,4 @@ setup(name='turtlebot_patrol', version='1.0.0', packages=find_packages(),
       entry_points={'console_scripts':[
           'patrol = turtlebot_patrol.node:main',
           'simulator = turtlebot_patrol.simulator:main',
-          'dashboard = turtlebot_patrol.dashboard:main']})
+          'dashboard = turtlebot_patrol.web_dashboard:main']})
