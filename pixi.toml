@@ -1,0 +1,15 @@
+[workspace]
+name = "turtlebot-patrol-workspace"
+channels = ["https://prefix.dev/robostack-jazzy", "https://prefix.dev/conda-forge"]
+platforms = ["win-64"]
+
+[dependencies]
+python = "3.12.*"
+ros-jazzy-ros-base = "*"
+ros-jazzy-launch-ros = "*"
+ros-jazzy-std-srvs = "*"
+ros-jazzy-sensor-msgs = "*"
+ros-jazzy-nav-msgs = "*"
+colcon-common-extensions = "*"
+pytest = "*"
+pillow = "*"

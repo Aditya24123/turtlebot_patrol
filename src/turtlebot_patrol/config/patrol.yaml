@@ -1,0 +1,10 @@
+patrol:
+  ros__parameters:
+    linear_speed: 0.20
+    angular_speed: 0.8
+    stop_distance: 0.55
+    clear_distance: 0.80
+    hard_distance: 0.24
+    sensor_timeout: 0.6
+    waypoint_tolerance: 0.25
+    waypoints: [6.3, 1.0, 6.3, 4.8, 1.0, 4.8, 1.0, 1.0]
